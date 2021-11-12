@@ -6,8 +6,8 @@ description: >
 usage:
   version: 2.1
   orbs:
-    <orb-name>: echorb/aws-install@1.0.0
+    <orb-name>: <namespace>/<orb-name>@1.2.3
   workflows:
     use-my-orb:
       jobs:
-        - <orb-name>/install
+        - <orb-name>/<job-name>
