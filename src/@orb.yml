@@ -1,15 +1,38 @@
+commands:
+    install:
+        description: |
+            This command install aws
+        steps:
+            - run:
+                command: |
+                    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+                    unzip -q awscliv2.zip
+                    sudo ./aws/install
+                name: Install AWS CLI v2
+executors:
+    default:
+        description: |
+            This is a sample executor using Docker and Python.
+        docker:
+            - image: circleci/python:3.8
+jobs:
+    hello:
+        description: |
+            Sample description
+        executor: default
+        steps:
+            - install
+examples:
+    example:
+        description: |
+            Sample example description.
+        usage:
+            version: "2.1"
+            orbs:
+                <orb-name>: echorb/aws-install@1.0.0
+            workflows:
+                use-my-orb:
+                    jobs:
+                        - <orb-name>/install
+
 version: 2.1
-
-description: >
-  Sample orb description
-# What will your orb allow users to accomplish?
-# Descriptions should be short, simple, and informative.
-
-# This information will be displayed in the orb registry and is not mandatory.
-display:
-  home_url: "https://www.website.com/docs"
-  source_url: "https://www.github.com/EXAMPLE_ORG/EXAMPLE_PROJECT"
-
-# If your orb requires other orbs, you can import them like this. Otherwise remove the "orbs" stanza.
-# orbs:
-#  hello: circleci/hello-build@0.0.5

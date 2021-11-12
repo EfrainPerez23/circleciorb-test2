@@ -1,0 +1,16 @@
+description: >
+  This command install aws
+# What will this command do?
+# Descriptions should be short, simple, and clear.
+# parameters:
+#   to:
+#     type: string
+#     default: "World"
+#     description: "Hello to whom?"
+steps:
+  - run:
+      name: Install AWS CLI v2
+      command: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip -q awscliv2.zip
+        sudo ./aws/install
