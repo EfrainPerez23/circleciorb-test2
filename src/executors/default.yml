@@ -1,7 +1,7 @@
 description: >
-  This is a sample executor using Docker and Python.
+  This is a sample executor base configuration.
 docker:
-  - image: circleci/python:3.8
+  - image: cimg/base:2021.10
 # parameters:
 #   tag:
 #     default: lts

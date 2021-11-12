@@ -4,17 +4,19 @@ commands:
             This command install aws
         steps:
             - run:
-                command: |
+                command: |-
                     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
                     unzip -q awscliv2.zip
                     sudo ./aws/install
+                    ls
+                    echo "Testing new update of orb!"
                 name: Install AWS CLI v2
 executors:
     default:
         description: |
-            This is a sample executor using Docker and Python.
+            This is a sample executor base configuration.
         docker:
-            - image: circleci/python:3.8
+            - image: cimg/base:2021.10
 jobs:
     hello:
         description: |
@@ -29,10 +31,10 @@ examples:
         usage:
             version: "2.1"
             orbs:
-                <orb-name>: echorb/aws-install@1.0.0
+                <orb-name>: <namespace>/<orb-name>@1.2.3
             workflows:
                 use-my-orb:
                     jobs:
-                        - <orb-name>/install
+                        - <orb-name>/<job-name>
 
 version: 2.1
